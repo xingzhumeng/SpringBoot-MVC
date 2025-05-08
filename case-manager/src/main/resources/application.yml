@@ -1,0 +1,29 @@
+server:
+  # 服务端口号
+  port: 80
+
+spring:
+  datasource:
+    # 数据库驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 连接地址
+    url: jdbc:mysql://localhost:3306/case-manager?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    # 数据库账号
+    username: root
+    # 数据库密码
+    password: root
+
+mybatis-plus:
+  # 设置哪个包下面的类可以在映射器中使用别名
+  type-aliases-package: com.example.entity
+  # 映射器位置
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    # 标准mybatis日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 开启字段的驼峰命名映射
+    map-underscore-to-camel-case: true
+
+shiro:
+  # 全局的会话失效时间：1000 * 60 * 10 => 10分钟
+  global-session-timeout: 600000
